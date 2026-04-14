@@ -56,18 +56,14 @@ import chat.stoat.core.model.schemas.Channel as ChannelSchema
 
 private const val USE_ALPHA_API = false
 
-val STOAT_BASE =
-    if (USE_ALPHA_API) "https://alpha.revolt.chat/api" else "https://api.stoat.chat/0.8"
+val STOAT_BASE = "https://snooty.werewolfy.com/api"
 const val STOAT_SUPPORT = "https://support.stoat.chat"
 const val STOAT_MARKETING = "https://stoat.chat"
-val STOAT_FILES =
-    if (USE_ALPHA_API) "https://alpha.revolt.chat/autumn" else "https://cdn.stoatusercontent.com"
-val STOAT_PROXY =
-    if (USE_ALPHA_API) "https://alpha.revolt.chat/january" else "https://proxy.stoatusercontent.com"
-const val STOAT_WEB_APP = "https://stoat.chat"
-const val STOAT_INVITES = "https://stt.gg"
-val STOAT_WEBSOCKET =
-    if (USE_ALPHA_API) "wss://alpha.revolt.chat/ws" else "wss://events.stoat.chat"
+val STOAT_FILES = "https://snooty.werewolfy.com/autumn"
+val STOAT_PROXY = "https://snooty.werewolfy.com/january"
+const val STOAT_WEB_APP = "https://snooty.werewolfy.com"
+const val STOAT_INVITES = "https://snooty.werewolfy.com"
+val STOAT_WEBSOCKET = "wss://snooty.werewolfy.com/ws"
 const val STOAT_KJBOOK = "https://stoatchat.github.io/for-android"
 
 fun String.api(): String {
