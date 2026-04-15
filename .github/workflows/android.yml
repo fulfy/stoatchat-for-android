@@ -58,7 +58,7 @@ jobs:
       #       app/build/outputs/apk/debug/app-debug.apk
 
       - name: Build release with Gradle
-        run: ./gradlew --no-daemon assembleRelease -x app:uploadSentryProguardMappingsRelease -x app:lintVitalReportRelease
+        run: ./gradlew --no-daemon assembleRelease -x app:uploadSentryProguardMappingsRelease
 
       - name: Look for apk file
         run: ls app/build/outputs/apk/ && ls app/build/outputs/apk/release/
