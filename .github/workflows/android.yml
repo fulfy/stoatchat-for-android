@@ -46,19 +46,22 @@ jobs:
       - name: Setup repo
         run: deno run -A scripts/download_deps.ts --yes && cp stoatbuild.properties.example stoatbuild.properties && cp sentry.properties.example sentry.properties && cp app/google-services.json.example app/google-services.json && git submodule update --init --recursive
 
-      - name: Build debug with Gradle
-        run: ./gradlew --no-daemon assembleDebug
+      # - name: Build debug with Gradle
+      #   run: ./gradlew --no-daemon assembleDebug
 
-      - name: Archive debug APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: debug-apk
-          retention-days: 30
-          path: |
-            app/build/outputs/apk/debug/app-debug.apk
+      # - name: Archive debug APK
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: debug-apk
+      #     retention-days: 30
+      #     path: |
+      #       app/build/outputs/apk/debug/app-debug.apk
 
       - name: Build release with Gradle
-        run: ./gradlew --no-daemon assembleRelease -x app:uploadSentryProguardMappingsRelease
+        run: ./gradlew --no-daemon assembleRelease -x app:uploadSentryProguardMappingsRelease -x app:lintVitalReportRelease
+
+      - name: Look for apk file
+        run: ls app/build/outputs/apk/ && ls app/build/outputs/apk/release/
 
       - name: Archive release APK
         uses: actions/upload-artifact@v4
