@@ -33,7 +33,7 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v2
 
-      - setup: Setup Deno
+      - name: Setup Deno
         uses: denoland/setup-deno@v2
         with:
           # setting `cache-hash` implies `cache: true` and will replace
